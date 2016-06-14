@@ -8,7 +8,7 @@
 
 ##General
 
-A simple web application which provides a timetable after selecting a course of study and a year.
+A simple web application which provides a timetable after selecting a course of studies and a year.
 
 Placeholder
 Placeholder
