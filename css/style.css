@@ -32,6 +32,21 @@ footer {
   text-align: center;
 }
 
+.schedule_item{
+	margin: 0 0 0.5em 0;
+}
+.schedule_item p{
+	margin: 0;
+}
+.category{
+	font-weight: bold;
+}
+h2.schedule{
+	color: rgb(59,116,179);
+	font-size: 100%;
+}
+
+
 /*STANDARD-VIEW --------------------------------------------------------------*/
 
 #dropdown_container {

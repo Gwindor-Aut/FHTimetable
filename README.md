@@ -53,8 +53,6 @@ Prüfungstage (Prüfungen) hervorheben
 
 Speichern des Stundenplans lokal
 
-Server? => NodeJS muss oder auch flask möglich?
-
 #Nice to have:
 
 Gebäudegrundriss
