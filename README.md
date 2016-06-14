@@ -51,6 +51,10 @@ Wochenende, Freie Tage kennzeichnen
 
 Prüfungstage (Prüfungen) hervorheben
 
+Speichern des Stundenplans lokal
+
+Server? => NodeJS muss oder auch flask möglich?
+
 ### used sources
 
 https://ws.fh-joanneum.at/manage/documentation.php
