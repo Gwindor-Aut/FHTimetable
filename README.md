@@ -55,6 +55,10 @@ Speichern des Stundenplans lokal
 
 Server? => NodeJS muss oder auch flask möglich?
 
+#Nice to have:
+
+Gebäudegrundriss
+
 ### used sources
 
 https://ws.fh-joanneum.at/manage/documentation.php
