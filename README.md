@@ -55,6 +55,9 @@ Prüfungstage (Prüfungen) hervorheben
 
 https://ws.fh-joanneum.at/manage/documentation.php
 
+###### dropdown select für bootstrap 
+https://silviomoreto.github.io/bootstrap-select/
+
 Placeholder
 Placeholder
 Placeholder

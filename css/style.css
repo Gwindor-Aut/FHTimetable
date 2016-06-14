@@ -6,7 +6,9 @@
 }
 
 #fh_pic {
-    max-width: 100%;
+		margin-top: 5%;
+    max-width: 60%;
+		margin-left: 20%;
 }
 
 #resultbtn {
@@ -55,7 +57,7 @@ footer {
     	justify-content: space-between;
   }
 
-  #jahrgang, #studiengang {
+  #selectpicker {
     margin: auto;
     width: 40%;
   }
