@@ -21,18 +21,53 @@
         <div class="studiengang">
           <!-- include a search option / data-tokens are the search patterns -->
           <!-- https://silviomoreto.github.io/bootstrap-select/ -->
-          <select class="selectpicker" data-live-search="true">
-            <option value="" disabled selected>Select course of studies</option>
-            <option data-tokens="ITM Internettechnik">ITM</option>
-            <option data-tokens="EVU">EVU</option>
-            <option data-tokens="EAV">EAV</option>
-            <option data-tokens="STS">STS</option>
+          <select class="selectpicker" data-live-search="true" data-style="btn-info">
+                <option value="" disabled selected style="display: none;">Select course of studies!</option>
+              <optgroup label="Angewandte Informatik" data-max-options="2">
+                <option data-tokens="ITM Internettechnik">ITM</option>
+                <option data-tokens="IMA Informationsmanagement">IMA</option>
+                <option data-tokens="GEB Gesundheitsinformatik eHealth">GEB</option>
+                <option data-tokens="SWD Software Design">SWD</option>
+              </optgroup>
+              <optgroup label="Engineering">
+                <option data-tokens="ECE Elektronik Computer Engineering">ECE</option>
+                <option data-tokens="FZT Fahrzeugtechnik Automotive Engineering">FZT</option>
+                <option data-tokens="PTO Produktionstechnik Organisation">PTO</option>
+                <option data-tokens="LAV Luftfahrt Aviation">LAV</option>
+                <option data-tokens="LEB Nachhaltiges Lebensmittelmanagement">LEB</option>
+              </optgroup>
+              <optgroup label="Gesundheitsstudien">
+                <option data-tokens="BIO Biomedizinische Analytik">BIO</option>
+                <option data-tokens="DIO Diätologie">DIO</option>
+                <option data-tokens="ERG Ergotherapie">ERG</option>
+                <option data-tokens="HEB Hebammen">HEB</option>
+                <option data-tokens="LOG Logopädie">LOG</option>
+                <option data-tokens="PTH Physiotherapie">PTH</option>
+                <option data-tokens="RAD Radiologietechnologie">RAD</option>
+              </optgroup>
+              <optgroup label="Bauen, Energie und Gesellschaft">
+                <option data-tokens="BBW Bauplanung Bauwirtschaft">BBW</option>
+                <option data-tokens="EVU Energie-, Verkehrs- Umweltmanagement">EVU</option>
+                <option data-tokens="SAM Soziale Arbeit">SAM</option>
+              </optgroup>
+              <optgroup label="Medien und Design">
+                <option data-tokens="IDB Industrial Design">IDB</option>
+                <option data-tokens="IND Informationsdesign">IND</option>
+                <option data-tokens="JPR Journalismus Public Relations (PR)">JPR</option>
+              </optgroup>
+              <optgroup label="Management">
+                <option data-tokens="BVW Bank- Versicherungswirtschaft">BVW</option>
+                <option data-tokens="GMT Gesundheitsmanagement Tourismus">GMT</option>
+                <option data-tokens="IWI Industriewirtschaft Industrial Management">IWI</option>
+                <option data-tokens="MIG Management internationaler Geschäftsprozesse">MIG</option>
+              </optgroup>
+
           </select>
         </div>
 
         <div class="jahrgang">
-          <select class="selectpicker" data-live-search="true">
-            <option value="" disabled selected>Select Year</option>
+          <select class="selectpicker" data-live-search="true" data-style="btn-info">
+            <option value="" disabled selected style="display: none;">Select year!</option>
             <option data-tokens="2016">2016</option>
             <option data-tokens="2015">2015</option>
             <option data-tokens="2014">2014</option>
@@ -42,6 +77,7 @@
       </div>
 
       <div id="general_container">
+            <button id="resetbtn" type="button" class="btn btn-warning" name="reset">reset!</button>
             <button id="resultbtn" type="button" class="btn btn-success" name="submit">show timetable!</button>
       </div>
 

@@ -11,6 +11,10 @@
 		margin-left: 20%;
 }
 
+#resetbtn {
+	margin: auto;
+}
+
 #resultbtn {
   margin: auto;
 }
