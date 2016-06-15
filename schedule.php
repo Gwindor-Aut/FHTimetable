@@ -10,7 +10,7 @@ include ('php/getSchedule.php');
 </head>
 	<body>
         <?php
-            $url =  "{$_SERVER['QUERY_STRING']}";
+            $url = "{$_SERVER['QUERY_STRING']}";
             if(function_exists('render_xml_data')){
                 render_xml_data('https://ws.fh-joanneum.at/getschedule.php?'.$url.'&k=qWj44BTFEx');
             }else{
