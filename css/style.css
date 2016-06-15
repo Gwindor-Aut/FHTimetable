@@ -11,6 +11,10 @@
 		margin-left: 20%;
 }
 
+#resetbtn {
+	margin: auto;
+}
+
 #resultbtn {
   margin: auto;
 }
@@ -27,6 +31,7 @@ footer {
   margin-top: 5%;
   text-align: center;
 }
+
 /*Schedule ---------------------------------------------------------------------*/
 .schedule_item{
 	margin: 0 0 0.5em 0;
@@ -42,10 +47,10 @@ h2.schedule{
 	font-size: 100%;
 }
 /* calendar */
-table.calendar{ 
-	border-left:1px solid #999; 
+table.calendar{
+	border-left:1px solid #999;
 }
-tr.calendar-row{ 
+tr.calendar-row{
 }
 td.calendar-day{
 	height:120px;

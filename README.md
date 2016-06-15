@@ -64,6 +64,12 @@ https://ws.fh-joanneum.at/manage/documentation.php
 ###### dropdown select für bootstrap 
 https://silviomoreto.github.io/bootstrap-select/
 
+###### xml to html
+http://www.fatbellyman.com/webstuff/xml_to_html/
+
+###### calender
+https://davidwalsh.name/php-calendar
+
 Placeholder
 Placeholder
 Placeholder
