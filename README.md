@@ -53,6 +53,10 @@ Prüfungstage (Prüfungen) hervorheben
 
 Speichern des Stundenplans lokal
 
+
+COOKIES!!!!
+
+
 #Nice to have:
 
 Gebäudegrundriss
