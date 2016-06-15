@@ -1,7 +1,12 @@
 <?php
+include ('renderSchedule.php');
 function render_xml_data($url){
 		$xml = simplexml_load_file($url) or die("Error: Cannot load Schedule from FHPI");
 		echo '<h2 class="schedule">'.$xml->Course.' '.$xml->Year.'</h2>'."\n";
+		
+		echo '<h2>Juni 2016</h2>';
+		echo draw_calendar(6,2016,$xml);
+		
 		foreach ($xml->Event as $record) {
 			echo '<div class="schedule_item">'."\n";
 			echo '<p><span class="category">Fach: </span>'.$record->Title.'</p>'."\n";
