@@ -21,7 +21,7 @@
         <div class="studiengang">
           <!-- include a search option / data-tokens are the search patterns -->
           <!-- https://silviomoreto.github.io/bootstrap-select/ -->
-          <select class="selectpicker" data-live-search="true" data-style="btn-info">
+          <select id="course" class="selectpicker" data-live-search="true" data-style="btn-info">
                 <option value="" disabled selected style="display: none;">Select course of studies!</option>
               <optgroup label="Angewandte Informatik" data-max-options="2">
                 <option data-tokens="ITM Internettechnik">ITM</option>
@@ -61,12 +61,11 @@
                 <option data-tokens="IWI Industriewirtschaft Industrial Management">IWI</option>
                 <option data-tokens="MIG Management internationaler Geschäftsprozesse">MIG</option>
               </optgroup>
-
           </select>
         </div>
 
         <div class="jahrgang">
-          <select class="selectpicker" data-live-search="true" data-style="btn-info">
+          <select id="year" class="selectpicker" data-live-search="true" data-style="btn-info">
             <option value="" disabled selected style="display: none;">Select year!</option>
             <option data-tokens="2016">2016</option>
             <option data-tokens="2015">2015</option>
@@ -78,11 +77,19 @@
 
       <div id="general_container">
             <button id="resetbtn" type="button" class="btn btn-warning" name="reset">reset!</button>
-            <button id="resultbtn" type="button" class="btn btn-success" name="submit">show timetable!</button>
+          <a id="link" href="schedule.php"><button id="resultbtn" type="button" class="btn btn-success" name="submit" onclick="showSchedule()">show timetable!</button></a>
       </div>
 
       <footer>© Rudischer | Schaberreiter | Schweighofer</footer>
-
+        <script>
+            function showSchedule(){
+                courses = document.getElementById('course').options;
+                course = document.getElementById('course').selectedIndex;
+                years = document.getElementById('year').options;
+                year = document.getElementById('year').selectedIndex;
+                document.getElementById('link').href = 'schedule.php?c='+courses[course].text+'&y='+years[year].text;
+            }
+        </script>
     </body>
   </div>
 </html>

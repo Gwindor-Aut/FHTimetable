@@ -1,0 +1,9 @@
+.schedule_item{
+	margin: 0 0 0.5em 0;
+}
+.schedule_item p{
+	margin: 0;
+}
+.category{
+	font-weight: bold;
+}
