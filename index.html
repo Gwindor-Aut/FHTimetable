@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="img/png" href="./img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/bootstrap-select.min.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -28,6 +29,10 @@
                 <option data-tokens="IMA Informationsmanagement">IMA</option>
                 <option data-tokens="GEB Gesundheitsinformatik eHealth">GEB</option>
                 <option data-tokens="SWD Software Design">SWD</option>
+                <option data-tokens="IT Mobile Security">IMS</option>
+                <option data-tokens="eHealth">EHT</option>
+                <option data-tokens="Informationsmanagement">AIM</option>
+                <option data-tokens="IT-Recht Management">IRM</option>
               </optgroup>
               <optgroup label="Engineering">
                 <option data-tokens="ECE Elektronik Computer Engineering">ECE</option>
@@ -35,6 +40,10 @@
                 <option data-tokens="PTO Produktionstechnik Organisation">PTO</option>
                 <option data-tokens="LAV Luftfahrt Aviation">LAV</option>
                 <option data-tokens="LEB Nachhaltiges Lebensmittelmanagement">LEB</option>
+                <option data-tokens="Advanced Electronic Engneering">AEE</option>
+                <option data-tokens="Engineering and Product Management">ENP</option>
+                <option data-tokens="Luftfahrt Aviation">MAV</option>
+                <option data-tokens="Fahrzeugtechnik Automotive Engineering">MAE</option>
               </optgroup>
               <optgroup label="Gesundheitsstudien">
                 <option data-tokens="BIO Biomedizinische Analytik">BIO</option>
@@ -44,22 +53,36 @@
                 <option data-tokens="LOG Logopädie">LOG</option>
                 <option data-tokens="PTH Physiotherapie">PTH</option>
                 <option data-tokens="RAD Radiologietechnologie">RAD</option>
+                <option data-tokens="Massenspektrometrie Molekulare Analytik">MMA</option>
               </optgroup>
               <optgroup label="Bauen, Energie und Gesellschaft">
                 <option data-tokens="BBW Bauplanung Bauwirtschaft">BBW</option>
                 <option data-tokens="EVU Energie-, Verkehrs- Umweltmanagement">EVU</option>
                 <option data-tokens="SAM Soziale Arbeit">SAM</option>
+                <option data-tokens="Architektur">ARC</option>
+                <option data-tokens="Bauplanung Ingenieurbau">BMI</option>
+                <option data-tokens="Energy and Transport Management">MET</option>
+                <option data-tokens="Soziale Arbeit">SOA</option>
               </optgroup>
               <optgroup label="Medien und Design">
                 <option data-tokens="IDB Industrial Design">IDB</option>
                 <option data-tokens="IND Informationsdesign">IND</option>
                 <option data-tokens="JPR Journalismus Public Relations (PR)">JPR</option>
+                <option data-tokens="Ausstellungsdesign">AUD</option>
+                <option data-tokens="
+Communication Design; Interaction Design; Media Design; Sound Design">CMS</option>
+                <option data-tokens="Industrial Design">IDM</option>
+                <option data-tokens="Content-Strategie Content Strategy">COS</option>
               </optgroup>
               <optgroup label="Management">
                 <option data-tokens="BVW Bank- Versicherungswirtschaft">BVW</option>
                 <option data-tokens="GMT Gesundheitsmanagement Tourismus">GMT</option>
                 <option data-tokens="IWI Industriewirtschaft Industrial Management">IWI</option>
                 <option data-tokens="MIG Management internationaler Geschäftsprozesse">MIG</option>
+                <option data-tokens="Bank- und Versicherungsmanagement">BVM</option>
+                <option data-tokens="Business in Emerging Markets">MEM</option>
+                <option data-tokens="Gesundheitsmanagement im Tourismus">GTM</option>
+                <option data-tokens="International Industrial Management">IIM</option>
               </optgroup>
           </select>
         </div>
@@ -71,25 +94,68 @@
             <option data-tokens="2015">2015</option>
             <option data-tokens="2014">2014</option>
             <option data-tokens="2013">2013</option>
+            <option data-tokens="2014">2012</option>
+            <option data-tokens="2013">2011</option>
+            <option data-tokens="2014">2010</option>
+            <option data-tokens="2013">2009</option>
+            <option data-tokens="2014">2008</option>
           </select>
         </div>
       </div>
 
       <div id="general_container">
             <button id="resetbtn" type="button" class="btn btn-warning" name="reset">reset!</button>
-          <a id="link" href="schedule.php"><button id="resultbtn" type="button" class="btn btn-success" name="submit" onclick="showSchedule()">show timetable!</button></a>
+          <!-- had to remove href of the a-tag, but works perfectly fine even without it -->
+            <a id="link"><button id="resultbtn" type="button" class="btn btn-success" name="submit">show timetable!</button></a>
       </div>
 
       <footer>© Rudischer | Schaberreiter | Schweighofer</footer>
-      
+
+        <!-- perhabs we should write our own js-script and include it -->
         <script>
+            //EventListener to remove onClick() on the buttons parameter, better solution
+
+            var resultbtn = document.getElementById('resultbtn');
+            resultbtn.addEventListener("click",showSchedule);
+
+            var resetbtn = document.getElementById('resetbtn');
+            resetbtn.addEventListener("click",resetSelect);
+
             function showSchedule(){
-                courses = document.getElementById('course').options;
-                course = document.getElementById('course').selectedIndex;
-                years = document.getElementById('year').options;
-                year = document.getElementById('year').selectedIndex;
+
+                var courses = document.getElementById('course').options;
+                var course = document.getElementById('course').selectedIndex;
+                var years = document.getElementById('year').options;
+                var year = document.getElementById('year').selectedIndex;
+
+                //the user has to select something
+                if(courses[course].text == "Select course of studies!" && years[year].text == "Select year!") {
+                  alert("Please select a course of studies and a year!");
+                } else if(courses[course].text == "Select course of studies!") {
+                  alert("Please select a course of studies!");
+                } else if(years[year].text == "Select year!") {
+                  alert("Please select a year!");
+                } else {
                 document.getElementById('link').href = 'schedule.php?c='+courses[course].text+'&y='+years[year].text;
+              }
             }
+
+            //its working after site refresh (cmnd+r) - but ill find a way to solve the problem! :)
+            function resetSelect() {
+
+              //value index, i.e 1+1
+              alert(document.getElementById('course').selectedIndex +"+"+document.getElementById('year').selectedIndex)
+
+              document.getElementById('course').selectedIndex = 0;
+              document.getElementById('year').selectedIndex = 0;
+
+              //value index 0+0
+              alert(document.getElementById('course').selectedIndex +"+"+document.getElementById('year').selectedIndex)
+
+              //should refresh the selection, but it doesnt work...
+              document.getElementById('course').selectpicker('refresh');
+            }
+
         </script>
     </body>
   </div>

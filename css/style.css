@@ -16,7 +16,12 @@
 }
 
 #resultbtn {
+	margin-top: 5%;
   margin: auto;
+}
+
+#link {
+	margin: auto;
 }
 
 #general_container {

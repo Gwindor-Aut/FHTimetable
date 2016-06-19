@@ -1,7 +1,7 @@
 <?php
 /* draws a calendar */
 function draw_calendar($month,$year,$xml){
-		
+
 	/* draw table */
 	$calendar = '<table cellpadding="5px" cellspacing="0" class="calendar">';
 
@@ -39,7 +39,7 @@ function draw_calendar($month,$year,$xml){
 				}
 			}
 			$calendar.= str_repeat('<p> </p>',2);
-			
+
 		$calendar.= '</td>';
 		if($running_day == 6):
 			$calendar.= '</tr>';
@@ -64,12 +64,12 @@ function draw_calendar($month,$year,$xml){
 
 	/* end the table */
 	$calendar.= '</table>';
-	
+
 	/* all done, return result */
 	return $calendar;
 }
 function draw_week($givenday,$month,$year,$xml){
-    
+
 	/* draw table */
 	$calendar = '<table cellpadding="5px" cellspacing="0" class="calendar">';
 
@@ -82,7 +82,7 @@ function draw_week($givenday,$month,$year,$xml){
     $week_start_day = date('d', strtotime('sunday last week', mktime(0,0,0,$month,$givenday,$year)));
     $week_end_day = date('d', strtotime('saturday this week', mktime(0,0,0,$month,$givenday,$year)));
     $week_start_dim = date('t', strtotime('sunday last week', mktime(0,0,0,$month,$givenday,$year)));
-    
+
 	$days_in_this_week = 1;
 	$day_counter = 0;
 	$dates_array = array();
@@ -97,7 +97,7 @@ function draw_week($givenday,$month,$year,$xml){
 		$calendar.= '<td class="calendar-day">';
 			/* add in the day number */
 			$calendar.= '<div class="day-number">'.$daycopy.'</div>';
-    
+
 			/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
 			$datum = Date('Y-m-d', mktime(0,0,0,$month,$daycopy,$year));
 			foreach ($xml->Event as $record) {
@@ -109,7 +109,7 @@ function draw_week($givenday,$month,$year,$xml){
         if ($daycopy > $week_start_dim){
             $daycopy = 1;
         }
-			
+
 		$calendar.= '</td>';
 
 		$days_in_this_week++; $day_counter++;
@@ -120,7 +120,7 @@ function draw_week($givenday,$month,$year,$xml){
 
 	/* end the table */
 	$calendar.= '</table>';
-	
+
 	/* all done, return result */
 	return $calendar;
 }
