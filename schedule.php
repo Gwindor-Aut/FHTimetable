@@ -6,7 +6,8 @@ include ('php/getSchedule.php');
 <head>
 	<title>FH-Schedule</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="css/style.css" title="default" media="screen" />
+	<link rel="stylesheet" type="text/css" href="css/schedulestyle.css" title="default" media="screen" />
+	<link rel="icon" type="img/png" href="./img/favicon.ico">
 </head>
 	<body>
         <?php

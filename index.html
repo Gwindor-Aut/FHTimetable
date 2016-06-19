@@ -13,7 +13,7 @@
     <title>TIMETABLE</title>
   </head>
 
-  <div id="wrapper">
+  <div class="wrapper">
     <body>
 
       <img id="fh_pic" src="./img/fh_pic.png" alt="FH Logo">
@@ -102,7 +102,7 @@ Communication Design; Interaction Design; Media Design; Sound Design">CMS</optio
           </select>
         </div>
       </div>
-
+      
       <div id="general_container">
             <button id="resetbtn" type="button" class="btn btn-warning" name="reset">reset!</button>
           <!-- had to remove href of the a-tag, but works perfectly fine even without it -->
@@ -140,22 +140,12 @@ Communication Design; Interaction Design; Media Design; Sound Design">CMS</optio
               }
             }
 
-            //its working after site refresh (cmnd+r) - but ill find a way to solve the problem! :)
+            //its working now!
             function resetSelect() {
-
-              //value index, i.e 1+1
-              alert(document.getElementById('course').selectedIndex +"+"+document.getElementById('year').selectedIndex)
-
-              document.getElementById('course').selectedIndex = 0;
-              document.getElementById('year').selectedIndex = 0;
-
-              //value index 0+0
-              alert(document.getElementById('course').selectedIndex +"+"+document.getElementById('year').selectedIndex)
-
-              //should refresh the selection, but it doesnt work...
-              document.getElementById('course').selectpicker('refresh');
+              //its only working with jquery - idk why :D
+              $('.selectpicker').val("");
+              $('.selectpicker').selectpicker('render');
             }
-
         </script>
     </body>
   </div>
