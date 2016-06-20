@@ -4,115 +4,134 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="img/png" href="./img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js" defer></script>
     <script src="./js/bootstrap.min.js" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="./js/bootstrap-select.min.js" defer></script>
     <title>TIMETABLE</title>
   </head>
 
-  <div id="wrapper">
+  <div id="wrapper" class="container">
     <body>
 
-      <img id="fh_pic" src="./img/fh_pic.png" alt="FH Logo">
+      <img id="fh_pic" class="img-responsive" src="./img/fh_pic.png" alt="FH Logo">
 
-      <div id="dropdown_container">
-        <div class="studiengang">
-          <!-- include a search option / data-tokens are the search patterns -->
-          <!-- https://silviomoreto.github.io/bootstrap-select/ -->
-          <select id="course" class="selectpicker" data-live-search="true" data-style="btn-info">
-                <option value="" disabled selected style="display: none;">Select course of studies!</option>
-              <optgroup label="Angewandte Informatik" data-max-options="2">
-                <option data-tokens="ITM Internettechnik">ITM</option>
-                <option data-tokens="IMA Informationsmanagement">IMA</option>
-                <option data-tokens="GEB Gesundheitsinformatik eHealth">GEB</option>
-                <option data-tokens="SWD Software Design">SWD</option>
-                <option data-tokens="IT Mobile Security">IMS</option>
-                <option data-tokens="eHealth">EHT</option>
-                <option data-tokens="Informationsmanagement">AIM</option>
-                <option data-tokens="IT-Recht Management">IRM</option>
-              </optgroup>
-              <optgroup label="Engineering">
-                <option data-tokens="ECE Elektronik Computer Engineering">ECE</option>
-                <option data-tokens="FZT Fahrzeugtechnik Automotive Engineering">FZT</option>
-                <option data-tokens="PTO Produktionstechnik Organisation">PTO</option>
-                <option data-tokens="LAV Luftfahrt Aviation">LAV</option>
-                <option data-tokens="LEB Nachhaltiges Lebensmittelmanagement">LEB</option>
-                <option data-tokens="Advanced Electronic Engneering">AEE</option>
-                <option data-tokens="Engineering and Product Management">ENP</option>
-                <option data-tokens="Luftfahrt Aviation">MAV</option>
-                <option data-tokens="Fahrzeugtechnik Automotive Engineering">MAE</option>
-              </optgroup>
-              <optgroup label="Gesundheitsstudien">
-                <option data-tokens="BIO Biomedizinische Analytik">BIO</option>
-                <option data-tokens="DIO Diätologie">DIO</option>
-                <option data-tokens="ERG Ergotherapie">ERG</option>
-                <option data-tokens="HEB Hebammen">HEB</option>
-                <option data-tokens="LOG Logopädie">LOG</option>
-                <option data-tokens="PTH Physiotherapie">PTH</option>
-                <option data-tokens="RAD Radiologietechnologie">RAD</option>
-                <option data-tokens="Massenspektrometrie Molekulare Analytik">MMA</option>
-              </optgroup>
-              <optgroup label="Bauen, Energie und Gesellschaft">
-                <option data-tokens="BBW Bauplanung Bauwirtschaft">BBW</option>
-                <option data-tokens="EVU Energie-, Verkehrs- Umweltmanagement">EVU</option>
-                <option data-tokens="SAM Soziale Arbeit">SAM</option>
-                <option data-tokens="Architektur">ARC</option>
-                <option data-tokens="Bauplanung Ingenieurbau">BMI</option>
-                <option data-tokens="Energy and Transport Management">MET</option>
-                <option data-tokens="Soziale Arbeit">SOA</option>
-              </optgroup>
-              <optgroup label="Medien und Design">
-                <option data-tokens="IDB Industrial Design">IDB</option>
-                <option data-tokens="IND Informationsdesign">IND</option>
-                <option data-tokens="JPR Journalismus Public Relations (PR)">JPR</option>
-                <option data-tokens="Ausstellungsdesign">AUD</option>
-                <option data-tokens="
-Communication Design; Interaction Design; Media Design; Sound Design">CMS</option>
-                <option data-tokens="Industrial Design">IDM</option>
-                <option data-tokens="Content-Strategie Content Strategy">COS</option>
-              </optgroup>
-              <optgroup label="Management">
-                <option data-tokens="BVW Bank- Versicherungswirtschaft">BVW</option>
-                <option data-tokens="GMT Gesundheitsmanagement Tourismus">GMT</option>
-                <option data-tokens="IWI Industriewirtschaft Industrial Management">IWI</option>
-                <option data-tokens="MIG Management internationaler Geschäftsprozesse">MIG</option>
-                <option data-tokens="Bank- und Versicherungsmanagement">BVM</option>
-                <option data-tokens="Business in Emerging Markets">MEM</option>
-                <option data-tokens="Gesundheitsmanagement im Tourismus">GTM</option>
-                <option data-tokens="International Industrial Management">IIM</option>
-              </optgroup>
-          </select>
-        </div>
+      <div id="dropdown_container" class="row">
+        <div id="all_dropdowns">
+          <div id="studiengang" class="col-md-4">
+            <!-- include a search option / data-tokens are the search patterns -->
+            <!-- https://silviomoreto.github.io/bootstrap-select/ -->
+            <select id="course" class="selectpicker" data-live-search="true" data-style="btn-info">
+                  <option value="" disabled selected style="display: none;">Select course of studies!</option>
+                <optgroup label="Angewandte Informatik" data-max-options="2">
+                  <option data-tokens="ITM Internettechnik">ITM</option>
+                  <option data-tokens="IMA Informationsmanagement">IMA</option>
+                  <option data-tokens="GEB Gesundheitsinformatik eHealth">GEB</option>
+                  <option data-tokens="SWD Software Design">SWD</option>
+                  <option data-tokens="IT Mobile Security">IMS</option>
+                  <option data-tokens="eHealth">EHT</option>
+                  <option data-tokens="Informationsmanagement">AIM</option>
+                  <option data-tokens="IT-Recht Management">IRM</option>
+                </optgroup>
+                <optgroup label="Engineering">
+                  <option data-tokens="ECE Elektronik Computer Engineering">ECE</option>
+                  <option data-tokens="FZT Fahrzeugtechnik Automotive Engineering">FZT</option>
+                  <option data-tokens="PTO Produktionstechnik Organisation">PTO</option>
+                  <option data-tokens="LAV Luftfahrt Aviation">LAV</option>
+                  <option data-tokens="LEB Nachhaltiges Lebensmittelmanagement">LEB</option>
+                  <option data-tokens="Advanced Electronic Engneering">AEE</option>
+                  <option data-tokens="Engineering and Product Management">ENP</option>
+                  <option data-tokens="Luftfahrt Aviation">MAV</option>
+                  <option data-tokens="Fahrzeugtechnik Automotive Engineering">MAE</option>
+                </optgroup>
+                <optgroup label="Gesundheitsstudien">
+                  <option data-tokens="BIO Biomedizinische Analytik">BIO</option>
+                  <option data-tokens="DIO Diätologie">DIO</option>
+                  <option data-tokens="ERG Ergotherapie">ERG</option>
+                  <option data-tokens="HEB Hebammen">HEB</option>
+                  <option data-tokens="LOG Logopädie">LOG</option>
+                  <option data-tokens="PTH Physiotherapie">PTH</option>
+                  <option data-tokens="RAD Radiologietechnologie">RAD</option>
+                  <option data-tokens="Massenspektrometrie Molekulare Analytik">MMA</option>
+                </optgroup>
+                <optgroup label="Bauen, Energie und Gesellschaft">
+                  <option data-tokens="BBW Bauplanung Bauwirtschaft">BBW</option>
+                  <option data-tokens="EVU Energie-, Verkehrs- Umweltmanagement">EVU</option>
+                  <option data-tokens="SAM Soziale Arbeit">SAM</option>
+                  <option data-tokens="Architektur">ARC</option>
+                  <option data-tokens="Bauplanung Ingenieurbau">BMI</option>
+                  <option data-tokens="Energy and Transport Management">MET</option>
+                  <option data-tokens="Soziale Arbeit">SOA</option>
+                </optgroup>
+                <optgroup label="Medien und Design">
+                  <option data-tokens="IDB Industrial Design">IDB</option>
+                  <option data-tokens="IND Informationsdesign">IND</option>
+                  <option data-tokens="JPR Journalismus Public Relations (PR)">JPR</option>
+                  <option data-tokens="Ausstellungsdesign">AUD</option>
+                  <option data-tokens="
+  Communication Design; Interaction Design; Media Design; Sound Design">CMS</option>
+                  <option data-tokens="Industrial Design">IDM</option>
+                  <option data-tokens="Content-Strategie Content Strategy">COS</option>
+                </optgroup>
+                <optgroup label="Management">
+                  <option data-tokens="BVW Bank- Versicherungswirtschaft">BVW</option>
+                  <option data-tokens="GMT Gesundheitsmanagement Tourismus">GMT</option>
+                  <option data-tokens="IWI Industriewirtschaft Industrial Management">IWI</option>
+                  <option data-tokens="MIG Management internationaler Geschäftsprozesse">MIG</option>
+                  <option data-tokens="Bank- und Versicherungsmanagement">BVM</option>
+                  <option data-tokens="Business in Emerging Markets">MEM</option>
+                  <option data-tokens="Gesundheitsmanagement im Tourismus">GTM</option>
+                  <option data-tokens="International Industrial Management">IIM</option>
+                </optgroup>
+            </select>
+          </div>
 
-        <div class="jahrgang">
-          <select id="year" class="selectpicker" data-live-search="true" data-style="btn-info">
-            <option value="" disabled selected style="display: none;">Select year!</option>
-            <option data-tokens="2016">2016</option>
-            <option data-tokens="2015">2015</option>
-            <option data-tokens="2014">2014</option>
-            <option data-tokens="2013">2013</option>
-            <option data-tokens="2012">2012</option>
-          </select>
-        </div>
+          <div id="jahrgang" class="col-md-4">
+            <select id="year" class="selectpicker" data-live-search="true" data-style="btn-info">
+              <option value="" disabled selected style="display: none;">Select year!</option>
+              <option data-tokens="2016">2016</option>
+              <option data-tokens="2015">2015</option>
+              <option data-tokens="2014">2014</option>
+              <option data-tokens="2013">2013</option>
+              <option data-tokens="2012">2012</option>
+            </select>
+          </div>
 
-        <div class="Ansicht">
-          <select id="view" class="selectpicker" data-live-search="true" data-style="btn-info">
-            <option value="" disabled selected style="display: none;">Select View!</option>
-            <option data-tokens="monat">Month</option>
-            <option data-tokens="woche">Week</option>
-            <option data-tokens="tag">Day</option>
-          </select>
-        </div>
+          <div id="ansicht" class="col-md-4">
+            <select id="view" class="selectpicker" data-style="btn-info">
+              <option value="" disabled selected style="display: none;">Select view!</option>
+              <option data-tokens="monat">Month</option>
+              <option data-tokens="woche">Week</option>
+              <option data-tokens="tag">Day</option>
+            </select>
+          </div>
+      </div>
     </div>
 
-      <div id="general_container">
-            <button id="resetbtn" type="button" class="btn btn-warning" name="reset">reset!</button>
-          <!-- had to remove href of the a-tag, but works perfectly fine even without it -->
-            <a id="link"><button id="resultbtn" type="button" class="btn btn-success" name="submit">show timetable!</button></a>
+      <!--<div id="timeline_container">
+        <button id="daybtn" type="button" class="btn btn-info" name="daybtn">day!</button>
+        <button id="weekbtn" type="button" class="btn btn-info" name="weekbtn">week!</button>
+        <button id="monthbtn" type="button" class="btn btn-info" name="monthbtn">month!</button>
+      </div>-->
+
+      <!-- had to remove href of the a-tag, but works perfectly fine even without it -->
+      <div id="btn_container" class="row">
+        <div id="all_buttons">
+          <div id="result_container" class="col-md-4">
+                <a id="link"><button id="resultbtn" type="button" class="btn btn-success" name="submit">show timetable!</button></a>
+          </div>
+
+          <div id="reset_container" class="col-md-4">
+                <button id="resetbtn" type="button" class="btn btn-warning" name="reset">reset!</button>
+          </div>
+        </div>
       </div>
+
+
 
       <footer>© Rudischer | Schaberreiter | Schweighofer</footer>
 
@@ -134,22 +153,22 @@ Communication Design; Interaction Design; Media Design; Sound Design">CMS</optio
                 var year = document.getElementById('year').selectedIndex;
                 var views = document.getElementById('view').options;
                 var view = document.getElementById('view').selectedIndex;
-                
+
 
                 //the user has to select something
                 if(courses[course].text == "Select course of studies!" && years[year].text == "Select year!" && views[view].text == "Select View!") {
                   alert("Please select a course of studies, a year and a view!");
                 } else if(courses[course].text == "Select course of studies!" && years[year].text == "Select year!") {
-                  alert("Please select a course of studies and a year");
-                }else if(courses[course].text == "Select course of studies!" && views[view].text == "Select View!") {
+                  alert("Please select a course of studies and a year!");
+                }else if(courses[course].text == "Select course of studies!" && views[view].text == "Select view!") {
                   alert("Please select a course of studies and a view!");
-                }else if(years[year].text == "Select year!" && views[view].text == "Select View!") {
+                }else if(years[year].text == "Select year!" && views[view].text == "Select view!") {
                   alert("Please select a year and a view!");
                 }else if(courses[course].text == "Select course of studies!") {
                   alert("Please select a course of studies");
                 }else if(years[year].text == "Select year!") {
                   alert("Please select a year!");
-                }else if(views[view].text == "Select View!") {
+                }else if(views[view].text == "Select view!") {
                   alert("Please select a view!");
                 } else {
                 document.getElementById('link').href = 'schedule.php?c='+courses[course].text+'&y='+years[year].text+'&view='+views[view].text;
@@ -158,7 +177,6 @@ Communication Design; Interaction Design; Media Design; Sound Design">CMS</optio
 
             //its working after site refresh (cmnd+r) - but ill find a way to solve the problem! :)
             function resetSelect() {
-
 
               $('selectpicker').val("");
 
