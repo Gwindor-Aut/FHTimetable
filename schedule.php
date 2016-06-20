@@ -17,6 +17,7 @@ include ('php/getSchedule.php');
 
 </head>
 	<body>
+		<div id="wrapper" class="container">
         <?php
             $url = "{$_SERVER['QUERY_STRING']}";
             if(function_exists('render_xml_data')){
@@ -25,5 +26,6 @@ include ('php/getSchedule.php');
                 echo null;
             }
 		?>
+		</div>
 	</body>
 </html>
