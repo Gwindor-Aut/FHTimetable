@@ -19,12 +19,15 @@
 
       <img id="fh_pic" class="img-responsive" src="./img/fh_pic.png" alt="FH Logo">
 
+        <div class="alert alert-danger">
+            <strong>ACHTUNG!</strong> Leider musst du eine Internetverbindung haben, damit dieser Service funktioniert!
+        </div>
       <div id="dropdown_container" class="row">
         <div id="all_dropdowns">
           <div id="studiengang" class="col-md-4">
             <!-- include a search option / data-tokens are the search patterns -->
             <!-- https://silviomoreto.github.io/bootstrap-select/ -->
-            <select id="course" class="selectpicker" data-live-search="true" data-style="btn-info">
+            <select id="course" class="selectpicker" disabled data-live-search="true" data-style="btn-info">
                   <option value="" disabled selected style="display: none;">Select course of studies!</option>
                 <optgroup label="Angewandte Informatik" data-max-options="2">
                   <option data-tokens="ITM Internettechnik">ITM</option>
@@ -90,7 +93,7 @@
           </div>
 
           <div id="jahrgang" class="col-md-4">
-            <select id="year" class="selectpicker" data-live-search="true" data-style="btn-info">
+            <select id="year" disabled class="selectpicker" data-live-search="true" data-style="btn-info">
               <option value="" disabled selected style="display: none;">Select year!</option>
               <option data-tokens="2016">2016</option>
               <option data-tokens="2015">2015</option>
@@ -101,7 +104,7 @@
           </div>
 
           <div id="ansicht" class="col-md-4">
-            <select id="view" class="selectpicker" data-style="btn-info">
+            <select id="view" disabled class="selectpicker" data-style="btn-info">
               <option value="" disabled selected style="display: none;">Select view!</option>
               <option data-tokens="monat">Month</option>
               <option data-tokens="woche">Week</option>
@@ -121,7 +124,7 @@
       <div id="btn_container" class="row">
         <div id="all_buttons">
           <div id="result_container" class="col-md-4">
-                <a id="link"><button id="resultbtn" type="button" class="btn btn-success" name="submit">show timetable!</button></a>
+                <a id="link"><button id="resultbtn" disabled type="button" class="btn btn-success" name="submit">show timetable!</button></a>
           </div>
 
           <!--<div id="reset_container" class="col-md-4">
