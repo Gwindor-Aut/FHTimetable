@@ -98,6 +98,7 @@ function draw_week($givenday,$month,$year,$xml){
 		$calendar.= '<div class="col-sm-1 calendar-day">';
 			/* add in the day number */
 			$calendar.= '<div class="day-number">'.$daycopy.'</div>';
+            $calendar.= '<div class="day-name">'.$headings[(int)$day].'</div>';
 
 			/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
 			$datum = Date('Y-m-d', mktime(0,0,0,$month,$daycopy,$year));
@@ -142,7 +143,7 @@ function draw_day($givenday,$month,$year,$xml){
     $datum = Date('Y-m-d', mktime(0,0,0,$month,$givenday,$year));
     foreach ($xml->Event as $record) {
         if (Date( 'Y-m-d', (int)$record->Start) == $datum){
-            $calendar.= str_repeat('<div class="'.$record->Type.' schedule_item">'."\n".'<p>'.$record->Title.' - '.$record->Type.'</p>'."\n".'<p>'.Date( 'H:i', (int)$record->Start).'-'.Date( 'H:i', (int)$record->End).'</p>'."\n"."\n".'<p>'.$record->Location.'</p>'."\n".'<p>'.$record->Lecturer.'</p>'."\n".'</div>',1);
+            $calendar.= str_repeat('<div class="'.$record->Type.' day schedule_item">'."\n".'<p>'.$record->Title.' - '.$record->Type.'</p>'."\n".'<p>'.Date( 'H:i', (int)$record->Start).'-'.Date( 'H:i', (int)$record->End).'</p>'."\n"."\n".'<p>'.$record->Location.'</p>'."\n".'<p>'.$record->Lecturer.'</p>'."\n".'</div>',1);
         }
     }
     $calendar.= '</div>';

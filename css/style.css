@@ -57,10 +57,10 @@ footer {
 }
 
 /*-------------------small devices like tablets-------------------------------*/
-/*@media (min-width: 768px) and (max-width: 991px) {}*/
+@media (min-width: 768px) and (max-width: 991px) {}
 
 /*-------------------medium sized devices i.e desktops------------------------*/
-/*@media (min-width: 992px) and (max-width: 1199px) {}*/
+@media (min-width: 992px) and (max-width: 1199px) {}
 
 /*-------------------larger devices (e.g. wide-screen monitors)---------------*/
-/*@media (min-width: 1200px) {}*/
+@media (min-width: 1200px) {}
