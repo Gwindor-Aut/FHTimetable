@@ -98,7 +98,7 @@ function draw_week($givenday,$month,$year,$xml){
 		$calendar.= '<div class="col-sm-1 calendar-day">';
 			/* add in the day number */
 			$calendar.= '<div class="day-number">'.$daycopy.'</div>';
-            $calendar.= '<div class="day-name">'.$headings[(int)$list_day].'</div>';
+            $calendar.= '<div class="day-name">'.$headings[(int)$list_day-1].'</div>';
 
 			/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
 			$datum = Date('Y-m-d', mktime(0,0,0,$month,$daycopy,$year));
