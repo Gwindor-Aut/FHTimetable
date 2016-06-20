@@ -69,7 +69,7 @@ function render_xml_data($url){
     echo '</select><br>';
     echo '<br>';
 
-    echo ' course of studies:<select id="c" name="c" onchange="" size="1">';
+    echo ' Course of studies:<select id="c" name="c" onchange="" size="1">';
         echo '<optgroup label="Angewandte Informatik" data-max-options="2">';
             echo '<option data-tokens="ITM Internettechnik">ITM</option>';
             echo '<option data-tokens="IMA Informationsmanagement">IMA</option>';

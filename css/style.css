@@ -5,9 +5,8 @@
 	margin-top: 5%;
 }
 
-.container-fluid {
-  padding-right: 15px;
-  padding-left: 15px;
+.container {
+	max-width: 960px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -37,6 +36,10 @@ footer {
 /*-------------------devices smaller than 768px wide--------------------------*/
 /*---MOBILE FIRST---*/
 
+#studiengang {
+	margin-top: 1%;
+}
+
 #jahrgang {
 	margin-top: 1%;
 }
@@ -54,28 +57,10 @@ footer {
 }
 
 /*-------------------small devices like tablets-------------------------------*/
-@media (min-width: 768px) and (max-width: 991px) {
-
-
-
-
-
-}
+/*@media (min-width: 768px) and (max-width: 991px) {}*/
 
 /*-------------------medium sized devices i.e desktops------------------------*/
-@media (min-width: 992px) and (max-width: 1199px) {
-
-
-
-
-
-}
+/*@media (min-width: 992px) and (max-width: 1199px) {}*/
 
 /*-------------------larger devices (e.g. wide-screen monitors)---------------*/
-@media (min-width: 1200px) {
-
-
-
-
-
-}
+/*@media (min-width: 1200px) {}*/

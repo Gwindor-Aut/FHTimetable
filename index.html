@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html manifest="cache.appcache">
+<html >
+<!--manifest="cache.appcache"-->
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="img/png" href="./img/favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js" defer></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" defer></script>
@@ -14,13 +15,13 @@
     <title>TIMETABLE</title>
   </head>
 
-  <div id="wrapper" class="container-fluid">
+  <div id="wrapper" class="container">
     <body>
 
       <img id="fh_pic" class="img-responsive" src="./img/fh_pic.png" alt="FH Logo">
 
       <div id="dropdown_container" class="row">
-        <div id="all_dropdowns">
+        <div id="all_dropdowns" class="row">
           <div id="studiengang" class="col-md-4">
             <!-- include a search option / data-tokens are the search patterns -->
             <!-- https://silviomoreto.github.io/bootstrap-select/ -->
@@ -111,17 +112,15 @@
       </div>
     </div>
 
-      <!--<div id="timeline_container">
-        <button id="daybtn" type="button" class="btn btn-info" name="daybtn">day!</button>
-        <button id="weekbtn" type="button" class="btn btn-info" name="weekbtn">week!</button>
-        <button id="monthbtn" type="button" class="btn btn-info" name="monthbtn">month!</button>
-      </div>-->
-
-      <!-- had to remove href of the a-tag, but works perfectly fine even without it -->
+      <!-- nicht schön, aber funkt :) -->
       <div id="btn_container" class="row">
-        <div id="all_buttons">
+        <div id="all_buttons" class="row">
+          <div class="col-md-4">
+          </div>
           <div id="result_container" class="col-md-4">
                 <a id="link"><button id="resultbtn" type="button" class="btn btn-success" name="submit">show timetable!</button></a>
+          </div>
+          <div class="col-md-4">
           </div>
 
           <!--<div id="reset_container" class="col-md-4">
@@ -130,7 +129,8 @@
         </div>
       </div>
 
-
+      <div id="time"></div>
+      <div id="date"></div>
 
       <footer>© Rudischer | Schaberreiter | Schweighofer</footer>
 
@@ -175,13 +175,10 @@
             }
 
             //its working after site refresh (cmnd+r) - but ill find a way to solve the problem! :)
-            function resetSelect() {
-
+            /*function resetSelect() {
               $('selectpicker').val("");
-
               $('selectpicker').selectpicker('render');
-            }
-
+            }*/
         </script>
     </body>
   </div>
