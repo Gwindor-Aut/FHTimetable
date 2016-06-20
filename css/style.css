@@ -1,7 +1,21 @@
 /*--------------------------------GENERAL-------------------------------------*/
+ @font-face { font-family: Parka;
+	 src: url('Parka Regular.otf');
+ }
+
+ #time {
+	 font-size: 125%;
+	 font-family: Parka;
+ }
+
+ #date {
+	 font-size: 110%;
+	 font-family: Parka;
+ }
+
 #fh_pic {
-	width: 60%;
-	margin-left: 20%;
+	width: 65%;
+	margin-left: 17.5%;
 	margin-top: 5%;
 }
 
@@ -37,7 +51,7 @@ footer {
 /*---MOBILE FIRST---*/
 
 #studiengang {
-	margin-top: 1%;
+	margin-top: 2%;
 }
 
 #jahrgang {
@@ -60,7 +74,20 @@ footer {
 /*@media (min-width: 768px) and (max-width: 991px) {}*/
 
 /*-------------------medium sized devices i.e desktops------------------------*/
-/*@media (min-width: 992px) and (max-width: 1199px) {}*/
+@media (min-width: 992px) {
+
+	#studiengang {
+		margin-top: 1%;
+	}
+
+	#jahrgang {
+		margin-top: 1%;
+	}
+
+	#ansicht {
+		margin-top: 1%;
+	}
+}
 
 /*-------------------larger devices (e.g. wide-screen monitors)---------------*/
 /*@media (min-width: 1200px) {}*/

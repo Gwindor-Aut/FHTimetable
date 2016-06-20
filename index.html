@@ -12,16 +12,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js" defer></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js" defer></script>
-    <title>TIMETABLE</title>
+    <title>FH-Timetable</title>
   </head>
 
   <div id="wrapper" class="container">
-    <body>
+    <body onload="startTime(); getDate()">
 
       <img id="fh_pic" class="img-responsive" src="./img/fh_pic.png" alt="FH Logo">
 
       <div id="dropdown_container" class="row">
         <div id="all_dropdowns" class="row">
+
+          <div id="date_time_container">
+            <div id="time"></div>
+            <div id="date"></div>
+          </div>
+
           <div id="studiengang" class="col-md-4">
             <!-- include a search option / data-tokens are the search patterns -->
             <!-- https://silviomoreto.github.io/bootstrap-select/ -->
@@ -129,9 +135,6 @@
         </div>
       </div>
 
-      <div id="time"></div>
-      <div id="date"></div>
-
       <footer>© Rudischer | Schaberreiter | Schweighofer</footer>
 
         <!-- perhabs we should write our own js-script and include it -->
@@ -179,6 +182,50 @@
               $('selectpicker').val("");
               $('selectpicker').selectpicker('render');
             }*/
+
+            function startTime() {
+              var today = new Date();
+              var h = today.getHours();
+              var m = today.getMinutes();
+              var s = today.getSeconds();
+              m = checkTime(m);
+              s = checkTime(s);
+              document.getElementById('time').innerHTML =
+              h + ":" + m + ":" + s;
+              var t = setTimeout(startTime, 500);
+            }
+
+            function getDate() {
+              var weekday = new Array(7);
+                weekday[0]=  "Sonntag";
+                weekday[1] = "Montag";
+                weekday[2] = "Dienstag";
+                weekday[3] = "Mittwoch";
+                weekday[4] = "Donnerstag";
+                weekday[5] = "Freitag";
+                weekday[6] = "Samstag";
+
+               var today = new Date();
+               var dd = today.getDate();
+               var mm = today.getMonth()+1; //January is 0!
+
+               var yyyy = today.getFullYear();
+
+               if(dd<10){
+                   dd='0'+dd
+               }
+               if(mm<10){
+                   mm='0'+mm
+               }
+               var today = weekday[today.getDay()]+", "+dd+'.'+mm+'.'+yyyy;
+               document.getElementById("date").innerHTML = today;
+            }
+
+            function checkTime(i) {
+              if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+              return i;
+            }
+
         </script>
     </body>
   </div>
