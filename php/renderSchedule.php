@@ -68,6 +68,7 @@ function draw_calendar($month,$year,$xml){
 	/* all done, return result */
 	return $calendar;
 }
+
 function draw_week($givenday,$month,$year,$xml){
 
 	/* draw table */
@@ -124,6 +125,7 @@ function draw_week($givenday,$month,$year,$xml){
 	/* all done, return result */
 	return $calendar;
 }
+
 function draw_day($givenday,$month,$year,$xml){
 
     $day = date('w',mktime(0,0,0,$month,$givenday,$year));
@@ -136,7 +138,7 @@ function draw_day($givenday,$month,$year,$xml){
 
 	/* row for week one */
 	$calendar.= '<div class="row">';
-    
+
     $datum = Date('Y-m-d', mktime(0,0,0,$month,$givenday,$year));
     foreach ($xml->Event as $record) {
         if (Date( 'Y-m-d', (int)$record->Start) == $datum){

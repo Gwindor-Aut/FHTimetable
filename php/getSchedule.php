@@ -3,7 +3,7 @@ include ('renderSchedule.php');
 function render_xml_data($url){
     $xml = simplexml_load_file($url) or die("Error: Cannot load Schedule from FHPI");
     echo '<h2 class="schedule">'.$xml->Course.' '.$xml->Year.'</h2>'."\n";
-    
+
     if (isset($_GET['day'])) {
         $tag = $_GET['day'];
     } else{
@@ -20,7 +20,7 @@ function render_xml_data($url){
         $jahr = $_GET['year'];
     } else{
         $jahr = date("Y");
-    }   
+    }
 
     if (isset($_GET['view'])) {
         $ansicht = $_GET['view'];
@@ -32,17 +32,17 @@ function render_xml_data($url){
 
     if (isset($_GET['c'])) {
         $cget = $_GET['c'];
-    } 
+    }
 
     echo '<form method="get" action="schedule.php">';
 
-    echo 'Day :  <select name="day" id="day" onchange="" size="1">';
+    echo 'Day :  <select name="day" class="selectpicker" data-style="btn-info" id="day" onchange="" size="1">';
         for ($d=1; $d<=31; $d++) {
-            echo '<option value="'.$d.'"'.(($d==$tag)?'selected="selected"':"").'>'.$d.'</option>';   
+            echo '<option value="'.$d.'"'.(($d==$tag)?'selected="selected"':"").'>'.$d.'</option>';
         }
     echo '</select>';
-    
-    echo '  Month  :  <select name="month" id="month" onchange="" size="1">';
+
+    echo '  Month  :  <select name="month" class="selectpicker" data-style="btn-info" id="month" onchange="" size="1">';
         for ($m=1; $m<=12; $m++) {
             if($m == $monat){
                 echo '<option value="'.$m.'"selected="selected">'.date('M',mktime(0,0,0,$m,1,$jahr)).'</option>';
@@ -51,8 +51,8 @@ function render_xml_data($url){
             }
         }
     echo '</select>';
-    
-    echo '  Year :  <select name="year" id="year" onchange="" size="1">';
+
+    echo '  Year :  <select name="year" class="selectpicker" data-style="btn-info" id="year" onchange="" size="1">';
         for ($y=0; $y<=8; $y++) {
             if($jahr+4-$y == $jahr){
                 echo '<option value="'.($jahr+4-$y).'"selected="selected">'.($jahr+4-$y).'</option>';
@@ -62,13 +62,13 @@ function render_xml_data($url){
         }
     echo '</select>';
 
-    echo '  View :  <select name="view" id="view" onchange="" size="1">';
+    echo '  View :  <select name="view" class="selectpicker" data-style="btn-info" id="view" onchange="" size="1">';
         echo '<option value="Month"'.(($ansischt=='Month')?'selected="selected"':"").'> Monthview </option>';
         echo '<option value="Week"'.(($ansicht=='Week')?'selected="selected"':"").'> Weekview </option>';
         echo '<option value="Day"'.(($ansicht=='Day')?'selected="selected"':"").'> Dayview </option>';
     echo '</select><br>';
     echo '<br>';
-    
+
     echo ' course of studies:<select id="c" name="c" onchange="" size="1">';
         echo '<optgroup label="Angewandte Informatik" data-max-options="2">';
             echo '<option data-tokens="ITM Internettechnik">ITM</option>';
@@ -133,13 +133,14 @@ function render_xml_data($url){
 
     echo '  start year :  <select name="y" id="y" onchange="" size="1">';
         for ($y=0; $y<=4; $y++) {
-                echo '<option value="'.($jahr-$y).'"'.(($jahr-$y == $yget)?'selected="selected"':"").'>'.($jahr-$y).'</option>';   
+                echo '<option value="'.($jahr-$y).'"'.(($jahr-$y == $yget)?'selected="selected"':"").'>'.($jahr-$y).'</option>';
         }
-    
+
     echo '</select>';
-    
-    echo '<input type="submit"></input>';  
-    echo '</form>';
+
+    echo '<input type="submit"></input>';
+echo '</form>';
+
 
     if ($ansicht=='Month'){
         echo '<br><br>Monatsplan:';

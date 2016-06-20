@@ -5,7 +5,7 @@
 	margin-top: 5%;
 }
 
-.container {
+.container-fluid {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -25,15 +25,12 @@
 }
 
 #resultbtn {
-	width: 18%;
+	width: 125px;
 }
 
-#resetbtn {
-	width: 18%;
-}
 
 footer {
-	margin-top: 3%;
+	margin-top: 5%;
 	text-align: center;
 }
 
@@ -58,6 +55,7 @@ footer {
 
 /*-------------------small devices like tablets-------------------------------*/
 @media (min-width: 768px) and (max-width: 991px) {
+
 
 
 
