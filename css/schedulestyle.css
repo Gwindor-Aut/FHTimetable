@@ -28,6 +28,7 @@ h2.schedule{
 }
 div.inputdd{
     float:left;
+    margin-right: 10px;
 }
 div.breaker{
     clear: both;
