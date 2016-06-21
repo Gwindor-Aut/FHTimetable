@@ -95,7 +95,7 @@ function draw_week($givenday,$month,$year,$xml){
 
 	/* keep going with days.... */
 	for($list_day = 1; $list_day <= 7; $list_day++):
-		$calendar.= '<div class="col-sm-1 calendar-day">';
+		$calendar.= '<div class="col-sm-1 calendar-month-day">';
 			/* add in the day number */
 			$calendar.= '<div class="day-number">'.$daycopy.'</div>';
 			$calendar.= '<div class="day-name">'.$headings[(int)$list_day-1].'</div>';
