@@ -1,14 +1,19 @@
 <!DOCTYPE html>
+<!--Cache-->
 <html manifest="cache.appcache">
 
   <head>
     <meta charset="utf-8">
+    <!--Viewport 4 responsive design-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Favicon 16x16-->
     <link rel="icon" type="img/png" href="./img/favicon.ico">
+    <!--CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <!--JS (defer: download while parsing, executed after parsing)-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js" defer></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js" defer></script>
@@ -16,10 +21,12 @@
   </head>
 
     <body onload="startTime(); getDate()">
+      <!--Wrapper aka bootstrap-container-->
       <div id="wrapper" class="container">
 
       <img id="fh_pic" class="img-responsive" src="./img/fh_pic.png" alt="FH Logo">
 
+      <!--All drop-downs (course of studies, year, view) + time/date-->
       <div id="dropdown_container" class="row">
         <div id="all_dropdowns" class="row">
 
@@ -29,9 +36,10 @@
           </div>
 
           <div id="studiengang" class="col-md-4">
-            <!-- include a search option / data-tokens are the search patterns -->
-            <!-- https://silviomoreto.github.io/bootstrap-select/ -->
+            <!--Included a live search option / data-tokens are the search patterns-->
+            <!--https://silviomoreto.github.io/bootstrap-select/-->
             <select id="course" class="selectpicker" data-live-search="true" data-style="btn-info">
+                  <!--Default-->
                   <option value="" disabled selected style="display: none;">Select course of studies!</option>
                 <optgroup label="Angewandte Informatik" data-max-options="2">
                   <option data-tokens="ITM Internettechnik">ITM</option>
@@ -110,25 +118,24 @@
           <div id="ansicht" class="col-md-4">
             <select id="view" class="selectpicker" data-style="btn-info">
               <option value="" disabled selected style="display: none;">Select view!</option>
-              <option data-tokens="monat">Month</option>
-              <option data-tokens="woche">Week</option>
-              <option data-tokens="tag">Day</option>
+              <option>Month</option>
+              <option>Week</option>
+              <option>Day</option>
             </select>
           </div>
       </div>
     </div>
 
-      <!-- nicht schön, aber funkt :) -->
+      <!--All buttons-->
       <div id="btn_container" class="row">
         <div id="all_buttons" class="row">
           <div class="col-md-4">
           </div>
           <div id="result_container" class="col-md-4">
-                <a id="link"><button id="resultbtn" type="button" class="btn btn-success" name="submit">show timetable!</button></a>
+              <a id="link"><button id="resultbtn" type="button" class="btn btn-success" name="submit">show timetable!</button></a>
           </div>
           <div class="col-md-4">
           </div>
-
           <!--<div id="reset_container" class="col-md-4">
                 <button id="resetbtn" type="button" class="btn btn-warning" name="reset">reset!</button>
           </div>-->
@@ -137,18 +144,18 @@
 
       <footer>© Rudischer | Schaberreiter | Schweighofer</footer>
 
-        <!-- perhabs we should write our own js-script and include it -->
+        <!--Perhabs we should write our own js-script and include it-->
         <script>
             //EventListener to remove onClick() on the buttons parameter, better solution
-
             var resultbtn = document.getElementById('resultbtn');
             resultbtn.addEventListener("click",showSchedule);
 
             //var resetbtn = document.getElementById('resetbtn');
             //resetbtn.addEventListener("click",resetSelect);
 
+            //Function to create a link with the users selection (course, year, view)
             function showSchedule(){
-
+                //http://www.w3schools.com/jsref/prop_select_selectedindex.asp
                 var courses = document.getElementById('course').options;
                 var course = document.getElementById('course').selectedIndex;
                 var years = document.getElementById('year').options;
@@ -156,9 +163,8 @@
                 var views = document.getElementById('view').options;
                 var view = document.getElementById('view').selectedIndex;
 
-
-                //the user has to select something
-                if(courses[course].text == "Select course of studies!" && years[year].text == "Select year!" && views[view].text == "Select View!") {
+                //Test case
+                if(courses[course].text == "Select course of studies!" && years[year].text == "Select year!" && views[view].text == "Select view!") {
                   alert("Please select a course of studies, a year and a view!");
                 } else if(courses[course].text == "Select course of studies!" && years[year].text == "Select year!") {
                   alert("Please select a course of studies and a year!");
@@ -183,49 +189,51 @@
               $('selectpicker').selectpicker('render');
             }*/
 
+            //Function to create a formatted time
             function startTime() {
-              var today = new Date();
-              var h = today.getHours();
-              var m = today.getMinutes();
-              var s = today.getSeconds();
-              m = checkTime(m);
-              s = checkTime(s);
-              document.getElementById('time').innerHTML =
-              h + ":" + m + ":" + s;
-              var t = setTimeout(startTime, 500);
+                var today = new Date();
+                var h = today.getHours();
+                var m = today.getMinutes();
+                var s = today.getSeconds();
+                m = checkTime(m);
+                s = checkTime(s);
+                document.getElementById('time').innerHTML =
+                h + ":" + m + ":" + s;
+                var t = setTimeout(startTime, 500);
             }
 
-            function getDate() {
-              var weekday = new Array(7);
-                weekday[0]=  "Sonntag";
-                weekday[1] = "Montag";
-                weekday[2] = "Dienstag";
-                weekday[3] = "Mittwoch";
-                weekday[4] = "Donnerstag";
-                weekday[5] = "Freitag";
-                weekday[6] = "Samstag";
-
-               var today = new Date();
-               var dd = today.getDate();
-               var mm = today.getMonth()+1; //January is 0!
-
-               var yyyy = today.getFullYear();
-
-               if(dd<10){
-                   dd='0'+dd
-               }
-               if(mm<10){
-                   mm='0'+mm
-               }
-               var today = weekday[today.getDay()]+", "+dd+'.'+mm+'.'+yyyy;
-               document.getElementById("date").innerHTML = today;
-            }
-
+            //Function to dd zero in front of numbers < 10
             function checkTime(i) {
-              if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-              return i;
+                if (i < 10) {i = "0" + i};
+                return i;
             }
 
+            //Function to get the name of the day and the date itself
+            function getDate() {
+                var weekday = new Array(7);
+                  weekday[0]=  "Sonntag";
+                  weekday[1] = "Montag";
+                  weekday[2] = "Dienstag";
+                  weekday[3] = "Mittwoch";
+                  weekday[4] = "Donnerstag";
+                  weekday[5] = "Freitag";
+                  weekday[6] = "Samstag";
+
+                 var today = new Date();
+                 var dd = today.getDate();
+                 var mm = today.getMonth()+1; //January is 0!
+
+                 var yyyy = today.getFullYear();
+
+                 if(dd<10){
+                     dd='0'+dd
+                 }
+                 if(mm<10){
+                     mm='0'+mm
+                 }
+                 var today = weekday[today.getDay()]+", "+dd+'.'+mm+'.'+yyyy;
+                 document.getElementById("date").innerHTML = today;
+            }
         </script>
     </body>
   </div>

@@ -1,9 +1,13 @@
 <?php
+//renderSchedule got the functions: draw_calendar, draw_week, draw_day
 include ('renderSchedule.php');
 function render_xml_data($url){
+    //Load the provided XML of the API
     $xml = simplexml_load_file($url) or die("Error: Cannot load Schedule from FHPI");
+    //Get the data of the XML-knots
     echo '<h2 class="schedule">'.$xml->Course.' '.$xml->Year.'</h2>'."\n";
 
+    //Extract data from the URL
     if (isset($_GET['day'])) {
         $tag = $_GET['day'];
     } else{
@@ -34,6 +38,7 @@ function render_xml_data($url){
         $cget = $_GET['c'];
     }
 
+    //HTML-Structure (drop-downs, button)
     echo '<form method="get" action="schedule.php">';
 
     echo 'Day :  <select name="day" class="selectpicker" data-style="btn-info" id="day" onchange="" size="1">';
@@ -45,6 +50,7 @@ function render_xml_data($url){
     echo '  Month  :  <select name="month" class="selectpicker" data-style="btn-info" id="month" onchange="" size="1">';
         for ($m=1; $m<=12; $m++) {
             if($m == $monat){
+                //.date to calculate the UNIX-time of mktime (long integer) to a readable format
                 echo '<option value="'.$m.'"selected="selected">'.date('M',mktime(0,0,0,$m,1,$jahr)).'</option>';
             }else{
                 echo '<option value="'.$m.'">'.date('M',mktime(0,0,0,$m,1,$jahr)).'</option>';

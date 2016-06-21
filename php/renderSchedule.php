@@ -1,5 +1,5 @@
 <?php
-/* draws a calendar */
+/* draws a calendar (month)*/
 function draw_calendar($month,$year,$xml){
 
 	/* draw table */
@@ -10,7 +10,9 @@ function draw_calendar($month,$year,$xml){
 	$calendar.= '<div class="row"><div class="col-sm-1 calendar-day-head">'.implode('</div><div class="col-sm-1 calendar-day-head">',$headings).'</div></div>';
 
 	/* days and weeks vars now ... */
+	//days from 0-6 (Sunday-Saturday)
 	$running_day = date('w',mktime(0,0,0,$month,1,$year));
+	//days of the month
 	$days_in_month = date('t',mktime(0,0,0,$month,1,$year));
 	$days_in_this_week = 1;
 	$day_counter = 0;
@@ -34,6 +36,7 @@ function draw_calendar($month,$year,$xml){
 			/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
 			$datum = Date('Y-m-d', mktime(0,0,0,$month,$list_day,$year));
 			foreach ($xml->Event as $record) {
+				//Check if date exists in the XML-knot
 				if (Date( 'Y-m-d', (int)$record->Start) == $datum){
 					$calendar.= str_repeat('<div class="'.$record->Type.' schedule_item">'."\n".'<p>'.$record->Title.' - '.$record->Type.'</p>'."\n". '<p>'.Date( 'H:i', (int)$record->Start).'-'.Date( 'H:i', (int)$record->End).'</p>'."\n". '</div>'."\n",1);
 				}
@@ -80,6 +83,7 @@ function draw_week($givenday,$month,$year,$xml){
 
 	/* days and weeks vars now ... */
 	$day = date('w',mktime(0,0,0,$month,$givenday,$year));
+		//strtotime morphs a string to a UNIX-time
     $week_start_day = date('d', strtotime('sunday last week', mktime(0,0,0,$month,$givenday,$year)));
     $week_end_day = date('d', strtotime('saturday this week', mktime(0,0,0,$month,$givenday,$year)));
     $week_start_dim = date('t', strtotime('sunday last week', mktime(0,0,0,$month,$givenday,$year)));
@@ -91,7 +95,6 @@ function draw_week($givenday,$month,$year,$xml){
 
 	/* row for week one */
 	$calendar.= '<div class="row">';
-
 
 	/* keep going with days.... */
 	for($list_day = 1; $list_day <= 7; $list_day++):
@@ -129,12 +132,13 @@ function draw_week($givenday,$month,$year,$xml){
 
 function draw_day($givenday,$month,$year,$xml){
 
-    $day = date('w',mktime(0,0,0,$month,$givenday,$year));
+  $day = date('w',mktime(0,0,0,$month,$givenday,$year));
 	/* draw table */
 	$calendar = '<div class="container-fluid">';
 
 	/* table headings */
 	$headings = array('Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag');
+	//Get the day name
 	$calendar.= '<div class="row"><div class="day calendar-day-head">'.$headings[(int)$day].'</div></div>';
 
 	/* row for week one */
@@ -143,6 +147,7 @@ function draw_day($givenday,$month,$year,$xml){
     $datum = Date('Y-m-d', mktime(0,0,0,$month,$givenday,$year));
     foreach ($xml->Event as $record) {
         if (Date( 'Y-m-d', (int)$record->Start) == $datum){
+						//str_repeat(string, multiplier)
             $calendar.= str_repeat('<div class="day '.$record->Type.' schedule_item" day>'."\n".'<p>'.$record->Title.' - '.$record->Type.'</p>'."\n".'<p>'.Date( 'H:i', (int)$record->Start).'-'.Date( 'H:i', (int)$record->End).'</p>'."\n"."\n".'<p>'.$record->Location.'</p>'."\n".'<p>'.$record->Lecturer.'</p>'."\n".'</div>',1);
         }
     }

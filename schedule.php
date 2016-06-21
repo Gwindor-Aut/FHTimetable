@@ -1,4 +1,5 @@
 <?php
+//getSchedule got the function render_xml_data which is needed in line24
 include ('php/getSchedule.php');
 ?>
 <!DOCTYPE html>
@@ -19,6 +20,7 @@ include ('php/getSchedule.php');
 	<body>
 		<div id="wrapper" class="container">
         <?php
+						//{$_SERVER['QUERY_STRING']} = everything after the "?" in the URL
             $url = "{$_SERVER['QUERY_STRING']}";
             if(function_exists('render_xml_data')){
                 render_xml_data('https://ws.fh-joanneum.at/getschedule.php?'.$url.'&k=qWj44BTFEx');
