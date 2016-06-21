@@ -1,7 +1,7 @@
 /*Schedule ---------------------------------------------------------------------*/
 
 .container {
-	max-width: 960px;
+	max-width: 1350px;
   margin-right: auto;
   margin-left: auto;
 }
@@ -24,18 +24,24 @@
 }
 h2.schedule{
 	color: rgb(59,116,179);
-	font-size: 100%;
+	font-size: 150%;
+}
+div.inputdd{
+    float:left;
+}
+div.breaker{
+    clear: both;
 }
 /* calendar */
 div.calendar{
 	border-left:1px solid #999;
 }
-div.calendar-day{
+div.calendar-day, div.calendar-month-day{
 	height:130px;
 	font-size:13px;
     overflow: auto;
 }
-div.calendar-day:hover{
+div.calendar-day:hover, div.calendar-month-day:hover{
 	background:#eceff5;
 }
 div.calendar-day-np{
@@ -47,9 +53,7 @@ div.calendar-day-head{
 	font-weight:bold;
 	text-align:center;
 	padding:5px;
-	border-bottom:1px solid #999;
-	border-top:1px solid #999;
-	border-right:1px solid #999;
+	border:1px solid #999;
 }
 div.day-number{
 	background:#999;
@@ -63,11 +67,13 @@ div.day-number{
 div.day-name{
 	display: none;
 }
+div.calendar-month-day{
+    height: 400px;
+}
 /* shared */
-div.calendar-day, div.calendar-day-np{
+div.calendar-day, div.calendar-day-np, div.calendar-month-day{
 	padding:5px;
-	border-bottom:1px solid #999;
-	border-right:1px solid #999;
+	border:1px solid #999;
 }
 div.PA {
     background: rgba(255,0,0,0.5);
@@ -106,7 +112,7 @@ div.UE {
     div.calendar-day-head, div.calendar-day-np{
 	   display:none;
     }
-    div.calendar-day{
+    div.calendar-day, div.calendar-month-day{
         height: auto;
     }
     div.day-name{

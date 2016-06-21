@@ -41,13 +41,13 @@ function render_xml_data($url){
     //HTML-Structure (drop-downs, button)
     echo '<form method="get" action="schedule.php">';
 
-    echo 'Day :  <select name="day" class="selectpicker" data-style="btn-info" id="day" onchange="" size="1">';
+    echo '<div class="inputdd">Day: <br> <select name="day" class="selectpicker" data-style="btn-info" id="day" width="200px" onchange="" size="1">';
         for ($d=1; $d<=31; $d++) {
             echo '<option value="'.$d.'"'.(($d==$tag)?'selected="selected"':"").'>'.$d.'</option>';
         }
-    echo '</select>';
+    echo '</select></div>';
 
-    echo '  Month  :  <select name="month" class="selectpicker" data-style="btn-info" id="month" onchange="" size="1">';
+    echo '<div class="inputdd">Month: <br> <select name="month" class="selectpicker" data-style="btn-info" id="month" width="200px" onchange="" size="1">';
         for ($m=1; $m<=12; $m++) {
             if($m == $monat){
                 //.date to calculate the UNIX-time of mktime (long integer) to a readable format
@@ -56,9 +56,9 @@ function render_xml_data($url){
                 echo '<option value="'.$m.'">'.date('M',mktime(0,0,0,$m,1,$jahr)).'</option>';
             }
         }
-    echo '</select>';
+    echo '</select></div>';
 
-    echo '  Year :  <select name="year" class="selectpicker" data-style="btn-info" id="year" onchange="" size="1">';
+    echo '<div class="inputdd">Year: <br> <select name="year" class="selectpicker" data-style="btn-info" id="year" width="200px" onchange="" size="1">';
         for ($y=0; $y<=8; $y++) {
             if($jahr+4-$y == $jahr){
                 echo '<option value="'.($jahr+4-$y).'"selected="selected">'.($jahr+4-$y).'</option>';
@@ -66,16 +66,15 @@ function render_xml_data($url){
                 echo '<option value="'.($jahr+4-$y).'">'.($jahr+4-$y).'</option>';
             }
         }
-    echo '</select>';
+    echo '</select></div>';
 
-    echo '  View :  <select name="view" class="selectpicker" data-style="btn-info" id="view" onchange="" size="1">';
+    echo '<div class="inputdd">View: <br> <select name="view" class="selectpicker" data-style="btn-info" id="view" width="200px" onchange="" size="1">';
         echo '<option value="Month"'.(($ansischt=='Month')?'selected="selected"':"").'> Monthview </option>';
         echo '<option value="Week"'.(($ansicht=='Week')?'selected="selected"':"").'> Weekview </option>';
         echo '<option value="Day"'.(($ansicht=='Day')?'selected="selected"':"").'> Dayview </option>';
-    echo '</select><br>';
-    echo '<br>';
+    echo '</select></div><div class="breaker"></div>';
 
-    echo ' Course of studies:<select id="c" name="c" onchange="" size="1">';
+    echo '<div class="inputdd">Course of studies: <br> <select class="selectpicker" data-style="btn-info" id="c" name="c" onchange="" size="1">';
         echo '<optgroup label="Angewandte Informatik" data-max-options="2">';
             echo '<option data-tokens="ITM Internettechnik">ITM</option>';
             echo '<option data-tokens="IMA Informationsmanagement">IMA</option>';
@@ -135,27 +134,27 @@ function render_xml_data($url){
             echo '<option data-tokens="Gesundheitsmanagement im Tourismus">GTM</option>';
             echo '<option data-tokens="International Industrial Management">IIM</option>';
         echo '</optgroup>';
-    echo '</select>';
+    echo '</select></div>';
 
-    echo '  start year :  <select name="y" id="y" onchange="" size="1">';
+    echo '<div class="inputdd">start year: <br> <select name="y" class="selectpicker" data-style="btn-info" id="y" onchange="" size="1">';
         for ($y=0; $y<=4; $y++) {
                 echo '<option value="'.($jahr-$y).'"'.(($jahr-$y == $yget)?'selected="selected"':"").'>'.($jahr-$y).'</option>';
         }
 
-    echo '</select>';
+    echo '</select></div><div class="breaker"></div><br>';
 
-    echo '<input type="submit"></input>';
-echo '</form>';
+    echo '<div class="inputdd"><input class="btn btn-success" type="submit"></input></div>';
+echo '</form><div class="breaker"></div>';
 
 
     if ($ansicht=='Month'){
-        echo '<br><br>Monatsplan:';
+        echo '<br><div class="inputdd">Monatsplan:</div><br><div class="breaker"></div>';
         echo draw_calendar((int)$monat,(int)$jahr,$xml);
     } else if ($ansicht=='Week'){
-        echo '<br> Wochenplan:';
+        echo '<br><div class="inputdd">Wochenplan:</div><br><div class="breaker"></div>';
         echo draw_week((int)$tag, (int)$monat,(int)$jahr,$xml);
     } else if ($ansicht=='Day'){
-        echo '<br> Tagesplan:';
+        echo '<br><div class="inputdd">Tagesplan:</div><br><div class="breaker"></div>';
         echo draw_day((int)$tag, (int)$monat,(int)$jahr,$xml);
     }
     }
