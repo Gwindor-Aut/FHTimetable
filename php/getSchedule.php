@@ -5,7 +5,7 @@ function render_xml_data($url){
     //Load the provided XML of the API
     $xml = simplexml_load_file($url) or die("Error: Cannot load Schedule from FHPI");
     //Get the data of the XML-knots
-    echo '<h2 class="schedule">'.$xml->Course.' '.$xml->Year.'</h2>'."\n";
+    echo '<h2 class="schedule" id="topic">'.$xml->Course.' '.$xml->Year.'</h2>'."\n";
 
     //Extract data from the URL
     if (isset($_GET['day'])) {
@@ -69,13 +69,13 @@ function render_xml_data($url){
     echo '</select></div>';
 
     echo '<div class="inputdd">View: <br> <select name="view" class="selectpicker" data-style="btn-info" id="view" width="200px" onchange="" size="1">';
-        echo '<option value="Month"'.(($ansischt=='Month')?'selected="selected"':"").'> Monthview </option>';
-        echo '<option value="Week"'.(($ansicht=='Week')?'selected="selected"':"").'> Weekview </option>';
-        echo '<option value="Day"'.(($ansicht=='Day')?'selected="selected"':"").'> Dayview </option>';
+        echo '<option value="Month"'.(($ansischt=='Month')?'selected="selected"':"").'> Month </option>';
+        echo '<option value="Week"'.(($ansicht=='Week')?'selected="selected"':"").'> Week </option>';
+        echo '<option value="Day"'.(($ansicht=='Day')?'selected="selected"':"").'> Day </option>';
     echo '</select></div><div class="breaker"></div>';
 
     echo '<div class="inputdd">Course of studies: <br> <select class="selectpicker" data-style="btn-info" id="c" name="c" onchange="" size="1">';
-        echo '<optgroup label="Angewandte Informatik" data-max-options="2">';
+        echo '<optgroup label="Angewandte Informatik>';
             echo '<option data-tokens="ITM Internettechnik">ITM</option>';
             echo '<option data-tokens="IMA Informationsmanagement">IMA</option>';
             echo '<option data-tokens="GEB Gesundheitsinformatik eHealth">GEB</option>';

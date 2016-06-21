@@ -1,5 +1,13 @@
 /*Schedule ---------------------------------------------------------------------*/
+@font-face { font-family: Parka;
+	src: url('Parka Regular.otf');
+}
 
+#topic {
+	font-family: Parka;
+	font-size: 200%;
+	color: black;
+}
 .container {
 	max-width: 1350px;
   margin-right: auto;
