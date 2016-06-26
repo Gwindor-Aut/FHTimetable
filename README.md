@@ -10,11 +10,9 @@
 
 A simple web application which provides a timetable after selecting a course of studies and a year.
 
-Placeholder
-Placeholder
-Placeholder
-Placeholder
+##Install
 
+You will need a simple Webserver, which supports PHP and drop the whole project there.
 
 ##Criteria
 
@@ -30,32 +28,8 @@ Placeholder
 ##How does the WebApp work?
 
 1. Select your course of studies and year
-2. Take a look at the timetable
-
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-
-#TODO - nur fürs Projekt - kommt später raus! :)
-
-Anzeige eines kompletten Monats (Desktop)
-Anzeige einer Woche (Desktop, Tablet)
-Anzeige einzelner Tage (Überall)
-
-Vor/Zurück Button, evtl swipen am Tablet/Smartphone?
-
-ColorChange - Tag/Nacht Modi
-
-Wochenende, Freie Tage kennzeichnen
-
-Prüfungstage (Prüfungen) hervorheben
-
-Speichern des Stundenplans lokal
-
-#Nice to have:
-
-Gebäudegrundriss
+2. Select a View (Month, Week, Day)
+3. Take a look at the timetable
 
 ### used sources
 
@@ -69,16 +43,3 @@ http://www.fatbellyman.com/webstuff/xml_to_html/
 
 ###### calender
 https://davidwalsh.name/php-calendar
-
-Placeholder
-Placeholder
-Placeholder
-Placeholder
-
-### GitHub
-
-* in the project-folder:
-* git add *
-* git commit -m "msg"
-* git push
-
