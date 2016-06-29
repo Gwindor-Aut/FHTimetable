@@ -3,7 +3,7 @@
 include ('renderSchedule.php');
 function render_xml_data($url){
     //Load the provided XML of the API
-    $xml = simplexml_load_file($url) or die("Error: Cannot load Schedule from FHPI");
+    $xml = getXMLData($url) or die("Error: Cannot load Schedule from FHPI");
     //Get the data of the XML-knots
     echo '<h2 class="schedule" id="topic">'.$xml->Course.' '.$xml->Year.'</h2>'."\n";
 
@@ -75,68 +75,68 @@ function render_xml_data($url){
     echo '</select></div><div class="breaker"></div>';
 
     echo '<div class="inputdd">Course of studies: <br> <select class="selectpicker" data-style="btn-info" id="c" name="c" onchange="" size="1">';
-        echo '<optgroup label="Angewandte Informatik>';
-            echo '<option data-tokens="ITM Internettechnik">ITM</option>';
-            echo '<option data-tokens="IMA Informationsmanagement">IMA</option>';
-            echo '<option data-tokens="GEB Gesundheitsinformatik eHealth">GEB</option>';
-            echo '<option data-tokens="SWD Software Design">SWD</option>';
-            echo '<option data-tokens="IT Mobile Security">IMS</option>';
-            echo '<option data-tokens="eHealth">EHT</option>';
-            echo '<option data-tokens="Informationsmanagement">AIM</option>';
-            echo '<option data-tokens="IT-Recht Management">IRM</option>';
+        echo '<optgroup label="Angewandte Informatik">';
+            echo '<option data-tokens="ITM Internettechnik"'.(($cget=='ITM')?'selected="selected"':"").'>ITM</option>';
+            echo '<option data-tokens="IMA Informationsmanagement"'.(($cget=='IMA')?'selected="selected"':"").'>IMA</option>';
+            echo '<option data-tokens="GEB Gesundheitsinformatik eHealth"'.(($cget=='GEB')?'selected="selected"':"").'>GEB</option>';
+            echo '<option data-tokens="SWD Software Design"'.(($cget=='SWD')?'selected="selected"':"").'>SWD</option>';
+            echo '<option data-tokens="IT Mobile Security"'.(($cget=='IMS')?'selected="selected"':"").'>IMS</option>';
+            echo '<option data-tokens="eHealth"'.(($cget=='EHT')?'selected="selected"':"").'>EHT</option>';
+            echo '<option data-tokens="Informationsmanagement"'.(($cget=='AIM')?'selected="selected"':"").'>AIM</option>';
+            echo '<option data-tokens="IT-Recht Management"'.(($cget=='IRM')?'selected="selected"':"").'>IRM</option>';
         echo '</optgroup>';
         echo '<optgroup label="Engineering">';
-            echo '<option data-tokens="ECE Elektronik Computer Engineering">ECE</option>';
-            echo '<option data-tokens="FZT Fahrzeugtechnik Automotive Engineering">FZT</option>';
-            echo '<option data-tokens="PTO Produktionstechnik Organisation">PTO</option>';
-            echo '<option data-tokens="LAV Luftfahrt Aviation">LAV</option>';
-            echo '<option data-tokens="LEB Nachhaltiges Lebensmittelmanagement">LEB</option>';
-            echo '<option data-tokens="Advanced Electronic Engneering">AEE</option>';
-            echo '<option data-tokens="Engineering and Product Management">ENP</option>';
-            echo '<option data-tokens="Luftfahrt Aviation">MAV</option>';
-            echo '<option data-tokens="Fahrzeugtechnik Automotive Engineering">MAE</option>';
+            echo '<option data-tokens="ECE Elektronik Computer Engineering"'.(($cget=='ECE')?'selected="selected"':"").'>ECE</option>';
+            echo '<option data-tokens="FZT Fahrzeugtechnik Automotive Engineering"'.(($cget=='FZT')?'selected="selected"':"").'>FZT</option>';
+            echo '<option data-tokens="PTO Produktionstechnik Organisation"'.(($cget=='PTO')?'selected="selected"':"").'>PTO</option>';
+            echo '<option data-tokens="LAV Luftfahrt Aviation"'.(($cget=='LAV')?'selected="selected"':"").'>LAV</option>';
+            echo '<option data-tokens="LEB Nachhaltiges Lebensmittelmanagement"'.(($cget=='LEB')?'selected="selected"':"").'>LEB</option>';
+            echo '<option data-tokens="Advanced Electronic Engneering"'.(($cget=='AEE')?'selected="selected"':"").'>AEE</option>';
+            echo '<option data-tokens="Engineering and Product Management"'.(($cget=='ENP')?'selected="selected"':"").'>ENP</option>';
+            echo '<option data-tokens="Luftfahrt Aviation"'.(($cget=='MAV')?'selected="selected"':"").'>MAV</option>';
+            echo '<option data-tokens="Fahrzeugtechnik Automotive Engineering"'.(($cget=='MAE')?'selected="selected"':"").'>MAE</option>';
         echo '</optgroup>';
         echo '<optgroup label="Gesundheitsstudien">';
-            echo '<option data-tokens="BIO Biomedizinische Analytik">BIO</option>';
-            echo '<option data-tokens="DIO Diätologie">DIO</option>';
-            echo '<option data-tokens="ERG Ergotherapie">ERG</option>';
-            echo '<option data-tokens="HEB Hebammen">HEB</option>';
-            echo '<option data-tokens="LOG Logopädie">LOG</option>';
-            echo '<option data-tokens="PTH Physiotherapie">PTH</option>';
-            echo '<option data-tokens="RAD Radiologietechnologie">RAD</option>';
-            echo '<option data-tokens="Massenspektrometrie Molekulare Analytik">MMA</option>';
+            echo '<option data-tokens="BIO Biomedizinische Analytik"'.(($cget=='BIO')?'selected="selected"':"").'>BIO</option>';
+            echo '<option data-tokens="DIO Diätologie"'.(($cget=='DIO')?'selected="selected"':"").'>DIO</option>';
+            echo '<option data-tokens="ERG Ergotherapie"'.(($cget=='ERG')?'selected="selected"':"").'>ERG</option>';
+            echo '<option data-tokens="HEB Hebammen"'.(($cget=='HEB')?'selected="selected"':"").'>HEB</option>';
+            echo '<option data-tokens="LOG Logopädie"'.(($cget=='LOG')?'selected="selected"':"").'>LOG</option>';
+            echo '<option data-tokens="PTH Physiotherapie"'.(($cget=='PTH')?'selected="selected"':"").'>PTH</option>';
+            echo '<option data-tokens="RAD Radiologietechnologie"'.(($cget=='RAD')?'selected="selected"':"").'>RAD</option>';
+            echo '<option data-tokens="Massenspektrometrie Molekulare Analytik"'.(($cget=='MMA')?'selected="selected"':"").'>MMA</option>';
         echo '</optgroup>';
         echo '<optgroup label="Bauen, Energie und Gesellschaft">';
-            echo '<option data-tokens="BBW Bauplanung Bauwirtschaft">BBW</option>';
-            echo '<option data-tokens="EVU Energie-, Verkehrs- Umweltmanagement">EVU</option>';
-            echo '<option data-tokens="SAM Soziale Arbeit">SAM</option>';
-            echo '<option data-tokens="Architektur">ARC</option>';
-            echo '<option data-tokens="Bauplanung Ingenieurbau">BMI</option>';
-            echo '<option data-tokens="Energy and Transport Management">MET</option>';
-            echo '<option data-tokens="Soziale Arbeit">SOA</option>';
+            echo '<option data-tokens="BBW Bauplanung Bauwirtschaft"'.(($cget=='BBW')?'selected="selected"':"").'>BBW</option>';
+            echo '<option data-tokens="EVU Energie-, Verkehrs- Umweltmanagement"'.(($cget=='EVU')?'selected="selected"':"").'>EVU</option>';
+            echo '<option data-tokens="SAM Soziale Arbeit"'.(($cget=='SAM')?'selected="selected"':"").'>SAM</option>';
+            echo '<option data-tokens="Architektur"'.(($cget=='ARC')?'selected="selected"':"").'>ARC</option>';
+            echo '<option data-tokens="Bauplanung Ingenieurbau"'.(($cget=='BMI')?'selected="selected"':"").'>BMI</option>';
+            echo '<option data-tokens="Energy and Transport Management"'.(($cget=='MET')?'selected="selected"':"").'>MET</option>';
+            echo '<option data-tokens="Soziale Arbeit"'.(($cget=='SOA')?'selected="selected"':"").'>SOA</option>';
         echo '</optgroup>';
         echo '<optgroup label="Medien und Design">';
-            echo '<option data-tokens="IDB Industrial Design">IDB</option>';
-            echo '<option data-tokens="IND Informationsdesign">IND</option>';
-            echo '<option data-tokens="JPR Journalismus Public Relations (PR)">JPR</option>';
-            echo '<option data-tokens="Ausstellungsdesign">AUD</option>';
-            echo '<option data-tokens="Communication Design; Interaction Design; Media Design; Sound Design">CMS</option>';
-            echo '<option data-tokens="Industrial Design">IDM</option>';
-            echo '<option data-tokens="Content-Strategie Content Strategy">COS</option>';
+            echo '<option data-tokens="IDB Industrial Design"'.(($cget=='IDB')?'selected="selected"':"").'>IDB</option>';
+            echo '<option data-tokens="IND Informationsdesign"'.(($cget=='IND')?'selected="selected"':"").'>IND</option>';
+            echo '<option data-tokens="JPR Journalismus Public Relations (PR)"'.(($cget=='JPR')?'selected="selected"':"").'>JPR</option>';
+            echo '<option data-tokens="Ausstellungsdesign"'.(($cget=='AUD')?'selected="selected"':"").'>AUD</option>';
+            echo '<option data-tokens="Communication Design; Interaction Design; Media Design; Sound Design"'.(($cget=='CMS')?'selected="selected"':"").'>CMS</option>';
+            echo '<option data-tokens="Industrial Design"'.(($cget=='IDM')?'selected="selected"':"").'>IDM</option>';
+            echo '<option data-tokens="Content-Strategie Content Strategy"'.(($cget=='COS')?'selected="selected"':"").'>COS</option>';
         echo '</optgroup>';
         echo '<optgroup label="Management">';
-            echo '<option data-tokens="BVW Bank- Versicherungswirtschaft">BVW</option>';
-            echo '<option data-tokens="GMT Gesundheitsmanagement Tourismus">GMT</option>';
-            echo '<option data-tokens="IWI Industriewirtschaft Industrial Management">IWI</option>';
-            echo '<option data-tokens="MIG Management internationaler Geschäftsprozesse">MIG</option>';
-            echo '<option data-tokens="Bank- und Versicherungsmanagement">BVM</option>';
-            echo '<option data-tokens="Business in Emerging Markets">MEM</option>';
-            echo '<option data-tokens="Gesundheitsmanagement im Tourismus">GTM</option>';
-            echo '<option data-tokens="International Industrial Management">IIM</option>';
+            echo '<option data-tokens="BVW Bank- Versicherungswirtschaft"'.(($cget=='BVW')?'selected="selected"':"").'>BVW</option>';
+            echo '<option data-tokens="GMT Gesundheitsmanagement Tourismus"'.(($cget=='GMT')?'selected="selected"':"").'>GMT</option>';
+            echo '<option data-tokens="IWI Industriewirtschaft Industrial Management"'.(($cget=='IWI')?'selected="selected"':"").'>IWI</option>';
+            echo '<option data-tokens="MIG Management internationaler Geschäftsprozesse"'.(($cget=='MIG')?'selected="selected"':"").'>MIG</option>';
+            echo '<option data-tokens="Bank- und Versicherungsmanagement"'.(($cget=='BVM')?'selected="selected"':"").'>BVM</option>';
+            echo '<option data-tokens="Business in Emerging Markets"'.(($cget=='MEM')?'selected="selected"':"").'>MEM</option>';
+            echo '<option data-tokens="Gesundheitsmanagement im Tourismus"'.(($cget=='GTM')?'selected="selected"':"").'>GTM</option>';
+            echo '<option data-tokens="International Industrial Management"'.(($cget=='IIM')?'selected="selected"':"").'>IIM</option>';
         echo '</optgroup>';
     echo '</select></div>';
 
-    echo '<div class="inputdd">start year: <br> <select name="y" class="selectpicker" data-style="btn-info" id="y" onchange="" size="1">';
+    echo '<div class="inputdd">Start year: <br> <select name="y" class="selectpicker" data-style="btn-info" id="y" onchange="" size="1">';
         for ($y=0; $y<=4; $y++) {
                 echo '<option value="'.($jahr-$y).'"'.(($jahr-$y == $yget)?'selected="selected"':"").'>'.($jahr-$y).'</option>';
         }
@@ -158,4 +158,15 @@ echo '</form><div class="breaker"></div>';
         echo draw_day((int)$tag, (int)$monat,(int)$jahr,$xml);
     }
     }
+	function getXMLData($url) {
+	if (!($xml = simplexml_load_file($url))) {
+		$ch = curl_init();  
+		curl_setopt($ch,CURLOPT_URL,$url);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+		$output = curl_exec($ch);
+		curl_close($ch);
+		$xml = simplexml_load_string($output);
+	}
+	return $xml;
+}
 ?>
